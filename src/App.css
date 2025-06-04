@@ -1,0 +1,169 @@
+#root {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+/* Page Transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Card Animations */
+.card {
+  @apply bg-card text-card-foreground rounded-lg border p-4 shadow-sm transition-all duration-300;
+}
+
+.card:hover {
+  @apply shadow-lg transform -translate-y-1;
+}
+
+/* Button Animations */
+.btn-primary {
+  @apply bg-primary text-primary-foreground hover:bg-primary/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-secondary-foreground hover:bg-secondary/90 inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2;
+}
+
+/* Loading Spinner */
+.spinner {
+  @apply animate-spin h-5 w-5 text-primary;
+}
+
+/* Shimmer Effect */
+.shimmer {
+  background: linear-gradient(90deg, 
+    var(--background) 0%, 
+    var(--muted) 50%, 
+    var(--background) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Tooltip Animation */
+.tooltip {
+  @apply invisible absolute;
+}
+
+.has-tooltip:hover .tooltip {
+  @apply visible z-50;
+  animation: tooltip-slide-up 0.2s ease-out;
+}
+
+@keyframes tooltip-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Input Styles */
+.input {
+  @apply flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+}
+
+/* Navigation Menu Animation */
+.nav-menu-item {
+  @apply relative overflow-hidden;
+}
+
+.nav-menu-item::after {
+  @apply absolute bottom-0 left-0 h-0.5 w-0 bg-primary content-[''];
+  transition: width 0.3s ease-out;
+}
+
+.nav-menu-item:hover::after {
+  @apply w-full;
+}
+
+/* Modal Animations */
+.modal-overlay {
+  @apply fixed inset-0 bg-background/80 backdrop-blur-sm;
+  animation: fade-in 0.2s ease-out;
+}
+
+.modal-content {
+  @apply fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[450px] -translate-x-1/2 -translate-y-1/2 rounded-lg border bg-background p-6 shadow-lg;
+  animation: modal-slide-up 0.3s ease-out;
+}
+
+@keyframes modal-slide-up {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* List Item Hover Effect */
+.list-item {
+  @apply relative cursor-pointer px-4 py-2 transition-colors hover:bg-accent;
+}
+
+.list-item::before {
+  @apply absolute left-0 top-0 h-full w-1 bg-primary content-[''] scale-y-0;
+  transition: transform 0.2s ease-out;
+}
+
+.list-item:hover::before {
+  @apply scale-y-100;
+}
+
+/* Logo Animation (preserved from original) */
+.logo {
+  @apply h-12 transition-all duration-300;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 1em var(--primary));
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .logo.animate {
+    animation: logo-spin infinite 20s linear;
+  }
+}

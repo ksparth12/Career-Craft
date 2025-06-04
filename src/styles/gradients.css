@@ -1,0 +1,5 @@
+/* Enhanced Text Styles */
+.gradient-text, .gradient-text-static {
+  color: #ff0000;
+  text-shadow: 0 0 20px rgba(255, 0, 0, 0.4);
+}

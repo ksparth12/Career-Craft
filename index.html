@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/rocket-favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Career Craft | Resume Optimization & Job Search</title>
+    <meta name="description" content="Optimize your resume, find your dream job, and accelerate your career with Career Craft - the all-in-one platform for job seekers." />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Career Craft | Resume Optimization & Job Search" />
+    <meta property="og:description" content="Optimize your resume, find your dream job, and accelerate your career with Career Craft." />
+    <meta property="og:image" content="/opengraph-image.png" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Career Craft | Resume Optimization & Job Search" />
+    <meta name="twitter:description" content="Optimize your resume, find your dream job, and accelerate your career with Career Craft." />
+    <meta name="twitter:image" content="/opengraph-image.png" />
+    
+    <!-- Theme Color for browsers -->
+    <meta name="theme-color" content="#4C6FFF" />
+    
+    <style>
+      /* Loader styles */
+      #loader {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #ffffff;
+        z-index: 9999;
+        transition: opacity 0.3s ease-out;
+      }
+      
+      .dark #loader {
+        background-color: #121212;
+      }
+      
+      .loader-spinner {
+        width: 50px;
+        height: 50px;
+        border: 5px solid rgba(76, 111, 255, 0.2);
+        border-top-color: #4C6FFF;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        to { transform: rotate(360deg); }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="loader">
+      <div class="loader-spinner"></div>
+    </div>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    <script>
+      // Hide loader when page is loaded
+      window.addEventListener('load', function() {
+        const loader = document.getElementById('loader');
+        if (loader) {
+          loader.style.opacity = '0';
+          setTimeout(() => {
+            loader.style.display = 'none';
+          }, 300);
+        }
+      });
+    </script>
+  </body>
+</html>
